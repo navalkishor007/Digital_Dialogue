@@ -1,0 +1,57 @@
+{%extends 'blog/base.html'%}
+{%load static%}
+{%block cssblock%}
+    <link rel="stylesheet" href="{%static 'cssfile/post_detail.css'%}">
+{%endblock%}
+ {%block title_block%}{{post.title}}{%endblock%}
+
+     {%block content%}
+        <h1>{{post.title}}</h1>
+            <p id="date">Published on {{post.publish}} by {{post.author| title}}</p>
+            {{post.body|linebreaks}}<br>
+    <hr><br>
+
+<div align="center">
+    <a href="/{{post.id}}/share" class="btn btn-lg btn-primary">Share Post By Email</a></div>
+
+{%with comments.count as commnets_count%}
+    <h2>{{comments_count}} Comment{{comments_count|pluralize}}</h2>  <!-- this is not implemented yet not showing perfect result -->
+{%endwith%}
+{%if comments%}
+    {% for comment in comments %}
+        <p id="ch"> comment {{forloop.counter}} by {{comment.name}} on {{comment.created}}</p>
+            <div class="cb">{{comment.body|linebreaks}}</div>
+        <hr>
+        {%endfor%}
+{%else%}
+<p>There are No Comments Yet !!!</p>
+{%endif%}
+{%if csubmit%}
+<h2>Your Comment Added Succesfully</h2>
+{%else%}
+<form method="post">
+    {{form.as_p}}
+    {%csrf_token%}
+<!--    <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">-->
+<!--                <form id="algin-form" method="post">-->
+<!--                    <div class="form-group">-->
+<!--                        <h4>Leave a comment</h4> <label for="message">Message</label> <textarea name="msg" id="" msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>-->
+<!--                    </div>-->
+<!--                    <div class="form-group"> <label for="name">Name</label> <input type="text" name="name" id="fullname" class="form-control"> </div>-->
+<!--                    <div class="form-group"> <label for="email">Email</label> <input type="text" name="email" id="email" class="form-control"> </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <p class="text-secondary">If you have a <a href="#" class="alert-link">gravatar account</a> your address will be used to display your profile picture.</p>-->
+<!--                    </div>-->
+<!--                    <div class="form-inline"> <input type="checkbox" name="check" id="checkbx" class="mr-1"> <label for="subscribe">Subscribe me to the newlettter</label> </div>-->
+<!--                   {{form.as_p}}-->
+<!--                    {%csrf_token%}-->
+<!--                    <div class="form-group"> <button type="button" id="post" class="btn">Post Comment</button> </div>-->
+<!--                </form>-->
+<!--            </div>-->
+    <input class="btn-primary" type="submit" name="" value="Submit Comment">
+</form>
+{%endif%}
+{%block sidebar%}
+{%endblock%}
+{%endblock%}
+

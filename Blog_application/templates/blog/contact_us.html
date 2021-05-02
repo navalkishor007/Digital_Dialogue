@@ -1,0 +1,49 @@
+{%extends 'blog/base.html'%}
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+{%block header%}
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{%block cssblock%}
+    <link rel="stylesheet" href="{%static 'cssfile/contact.css'%}">
+    <link rel="stylesheet" href="{%static 'cssfile/blog.css'%}">
+    <link rel="stylesheet" href="{%static 'javascript/contact.js'%}">
+{%endblock%}
+    {%endblock%}
+        {%block sidebar%}
+          <header>
+	<h1>Contact us</h1>
+</header>
+
+    <div id="form">
+
+    <div class="fish" id="fish"></div>
+    <div class="fish" id="fish2"></div>
+
+    <form id="waterform" method="post">
+
+<!--    <div class="formgroup" id="name-form">-->
+<!--        <label for="name">Your name*</label>-->
+<!--        <input type="text" id="name" name="name" />-->
+<!--    </div>-->
+
+<!--    <div class="formgroup" id="email-form">-->
+<!--        <label for="email">Your e-mail*</label>-->
+<!--        <input type="email" id="email" name="email" />-->
+<!--    </div>-->
+
+<!--    <div class="formgroup" id="message-form">-->
+<!--        <label for="message">Your message</label>-->
+<!--        <textarea id="message" name="message"></textarea>-->
+<!--    </div>-->
+
+        {{obj.as_p}}
+        {%csrf_token%}
+        <input type="submit" value="Send your message!" />
+    </form>
+    </div>
+{%endblock%}
+
+

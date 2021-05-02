@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+{%load blog_tags%}
+{%load static%}
+<html lang="en">
+<head>
+    {%block header%}
+    {%endblock%}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+<!--    <link rel="stylesheet", href="{%static 'cssfile/blog.css'%}">-->
+    {%block cssblock%}
+    <link rel="stylesheet", href="{%static 'cssfile/blog.css'%}">
+    {%endblock%}
+    <meta charset="UTF-8">
+    <title>{%block title_block%}{%endblock%}</title>
+
+
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="footer, address, phone, icons" />
+
+<!--	<title>Responsive Footer</title>-->
+
+	<link rel="stylesheet" href="style.css">
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="navigation-bar">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Digital Dialogue</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto topnav">
+                <li class="nav-item active float-start">
+                    <a class="nav-link pull-left" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shop Pre-Owned</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shop New Cars</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Clearence Event</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Resources
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Carfax</a>
+                        <a class="dropdown-item" href="#">Carproof</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Omnivic</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/writer/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary text-white" type="button" href="/writer/signin" data-toggle="modal" data-target="#myModal">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-danger text-white" type="button" href="/writer/register" data-toggle="modal" data-target="#myModal">Register</a>
+                </li>
+            </ul>
+        </div>
+
+            <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Customer Sign In</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form>
+                        <label class="sr-only" for="username">Username</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+
+
+                        <label class="sr-only" for="Password">Name</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2"><i class="fa fa-key"></i></span>
+                            </div>
+                            <input id="Password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" >Sign In</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    </nav>
+</div>
+
+<!--<div class="topheading">-->
+
+<!--    <h1>The PositivityBlog</h1>-->
+<!--</div>-->
+     <div class="content">
+         {%block content%}
+         {%endblock%}
+     </div>
+    {%block sidebar%}
+    <div class="sidebar">
+        <h2> Current Status </h2>
+        <p>The total number of published post upto today:<span id="pcount">{%total_posts%}</span></p>
+        <h3>Latest Posts:</h3>{%show_latest_posts%}
+
+        <h3>Most Commented Posts:</h3>
+        {% get_most_commented_posts as most_commented_posts%}
+        <ul>
+            {% for post in most_commented_posts %}
+            <li><a href="{{post.get_absolute_url}}" id="la">{{post.title}}</a></li>
+            {%endfor%}
+        </ul>
+    </div>
+    {%endblock%}
+
+
+<footer class="footer-distributed">
+    <div class="footer-left">
+          <img src="img/logo.png">
+				<h3>About<span>Eduonix</span></h3>
+
+				<p class="footer-links">
+					<a href="#">Home</a>
+					|
+					<a href="#">Blog</a>
+					|
+					<a href="#">About</a>
+					|
+					<a href="/writer/contact">Contact</a>
+				</p>
+
+				<p class="footer-company-name">© 2019 Eduonix Learning Solutions Pvt. Ltd.</p>
+			</div>
+
+			<div class="footer-center">
+				<div>
+					<i class="fa fa-map-marker"></i>
+					  <p><span>309 - Rupa Solitaire,
+						 Bldg. No. A - 1, Sector - 1</span>
+						Mahape, Navi Mumbai - 400710</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+91 22-27782183</p>
+				</div>
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@eduonix.com">support@eduonix.com</a></p>
+				</div>
+			</div>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span>About the company</span>
+					We offer training and skill building courses across Technology, Design, Management, Science and Humanities.</p>
+				<div class="footer-icons">
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-instagram"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-youtube"></i></a>
+				</div>
+			</div>
+		</footer>
+</body>
+</html>

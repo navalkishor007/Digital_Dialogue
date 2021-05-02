@@ -1,0 +1,23 @@
+{%extends 'blog/base.html'%}
+{%load static%}
+{%block cssblock%}
+    <link rel="stylesheet" href="{%static 'cssfile/post_detail.css'%}">
+    <link rel="stylesheet" href="{%static 'cssfile/sharebymail.css'%}">
+{%endblock%}
+{%block sidebar%}
+{%endblock%}
+ {%block title_block%} Share Post By Email{%endblock%}
+
+     {%block content%}
+        {%if sent%}
+            <h1> Email Successfully send!!!</h1>
+            <h2>title: {{post.title}} information share by email</h2>
+        {%else%}
+        <h1>Share "{{post.title}}" By Email</h1>
+       <form method="POST">
+           {{form.as_p}}
+           {%csrf_token%}
+           <input type="submit" class="btn btn-primary btn-lg" value="send Mail">
+       </form>
+        {%endif%}
+     {%endblock%}
