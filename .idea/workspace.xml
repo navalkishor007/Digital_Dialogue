@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e2ecf8c-7983-4731-8a05-9cebeb037d73" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog_application/templates/registration/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog_application/user_login/migrations/0002_auto_20210504_2238.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Blog_application/user_login/migrations/0003_auto_20210504_2243.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog_application/.idea/Blog_application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_application/.idea/Blog_application.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog_application/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_application/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog_application/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog_application/Blog_application/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_application/Blog_application/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog_application/Blog_application/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_application/Blog_application/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog_application/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_application/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog_application/db.sqlite3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Blog_application/static/cssfile/sharebymail.css" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_application/static/cssfile/sharebymail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog_application/templates/blog/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_application/templates/blog/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog_application/templates/blog/blog_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_application/templates/blog/blog_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog_application/templates/blog/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_application/templates/blog/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog_application/user_login/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_application/user_login/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog_application/user_login/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_application/user_login/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog_application/user_login/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_application/user_login/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog_application/user_login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog_application/user_login/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
