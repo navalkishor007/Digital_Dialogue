@@ -7,6 +7,7 @@ from .models import Post
 # Create your views here.
 
 def post_list_view(request,tag_slug=None):
+    user = request.user
     post_list = Post.objects.all()
     tag = None
     if tag_slug:
@@ -20,7 +21,7 @@ def post_list_view(request,tag_slug=None):
         post_list = paginator.page(1)
     except EmptyPage:
         post_list = paginator.page(paginator.num_page)
-    return render(request, 'blog/post_list.html', {'post_list': post_list})
+    return render(request, 'blog/post_list.html', {'post_list': post_list,'user': user})
 
 
 def post_detail_view(request, year, month, day, post):

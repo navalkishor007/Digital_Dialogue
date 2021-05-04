@@ -2,10 +2,11 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from . forms import blog_form_for_user,contact_us_form
 from blog.models import Post
-from .models import contact_model
+from .models import contact_model,registered_users
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-
+@login_required
 def blog_form_view(request):
     obj = Post()
     form = blog_form_for_user
@@ -14,13 +15,27 @@ def blog_form_view(request):
         if form.is_valid():
             form.save(commit=True)
             print('submited')
-    return render(request,'blog/blog_form.html',{'form':form})
+    return render(request,'blog/blog_form.html',{'form': form})
+
+
 
 def register_form_view(request):
+    obj = registered_users()
+    if request.method == "POST":
+        obj.user_first_name = request.POST.get('first_name')
+        obj.user_last_name = request.POST.get('last_name')
+        obj.user_password = request.POST.get('password')
+        obj.gender = request.POST.get('gender')
+        obj.email = request.POST.get('email')
+        obj.user_phone = request.POST.get('phone')
+        obj.security_question = request.POST.get('s_question')
+        obj.answer = request.POST.get('answer')
+        obj.save()
     return render(request, 'blog/register.html')
 
 def login_form_view(request):
-    return render(request, 'blog/login.html')
+    login = request.session['login']
+    return render(request, 'blog/login.html',{'login':login})
 
 def contact_us_view(request):
     obj = contact_us_form()

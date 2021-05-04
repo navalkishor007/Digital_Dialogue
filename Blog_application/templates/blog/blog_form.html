@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <form method="post">
-        {%csrf_token%}
-        {{form.as_p}}
-    <input type="submit">
-        </form>
-</body>
-</html>
+
+{%extends 'blog/base.html'%}
+{%load static%}
+{%block cssblock%}
+    <link rel="stylesheet" href="{%static 'cssfile/post_detail.css'%}">
+    <link rel="stylesheet" href="{%static 'cssfile/sharebymail.css'%}">
+{%endblock%}
+{%block sidebar%}
+{%endblock%}
+
+     {%block content%}
+       <form method="POST">
+           {{form.as_p}}
+           {%csrf_token%}
+           <input type="submit" class="btn btn-primary btn-lg" value="Submit Post">
+       </form>
+     {%endblock%}
